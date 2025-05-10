@@ -5,7 +5,8 @@ This is a process of managing data to ensure data integrity and no redundancy. I
 1. 1NF (First Normal Form):
 
 - Atomic columns (no lists, only indivisible values).
-- Unique rows (primary key present).
+
+* Unique rows (primary key present).
 
 2. 2NF (Second Normal Form):
 
@@ -46,14 +47,14 @@ According to the available data, i believe it fully conforms to a 3NF normalizat
 - booking_id is a foreign key that references the booking Tbale
 - 3NF-compliant.
 
-  **Reviews Table:**
+**Reviews Table:**
 
 - All fields are atomic and dependent on review_id.
 - property_id, user_id are foreign keys that reference the Property and User tables respectively
 - No transitive dependencies.
 - 3NF-compliant.
 
-  **Message Table:**
+**Message Table:**
 
 - All fields are atomic and dependent on message_id.
 - sender_id and recipient_id are foreign keys referencing the user table.
