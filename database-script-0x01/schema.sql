@@ -10,7 +10,7 @@ create table User(
 );
 
 create table Property(
-    property_id int primary key index(0, 1),
+    property_id int primary key auto_increment,
     host_id int not null,
     name varchar(100) not null,
     description text not null,
@@ -38,8 +38,8 @@ create table Review(
     review_id int primary key auto_increment,
     property_id int not null,
     user_id int not null,
-    rating int not null,
-    comment text,
+    rating int not null check(rating >=1 and rating <= 5),
+    comment text not null,
     created_at timestamp default current_timestamp,
     foreign key (property_id) references Property(property_id),
     foreign key (user_id) references User(user_id)
@@ -49,8 +49,8 @@ create table Message(
     message_id int primary key auto_increment,
     sender_id int not null,
     recipient_id int not null,
-    message_body text,
-    sent_at timestamp default current_timestamp
+    message_body text not null,
+    sent_at timestamp default current_timestamp,
     foreign key (sender_id) references User(user_id),
-    foreign key (recipient_id) references User(recipient_id)
+    foreign key (recipient_id) references User(user_id)
 );
