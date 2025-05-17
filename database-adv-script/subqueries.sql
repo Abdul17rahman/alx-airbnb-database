@@ -1,0 +1,1 @@
+SELECT * FROM review INNER JOIN property on review.property_id = p.property_id WHERE rating > 4.0;
